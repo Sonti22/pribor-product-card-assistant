@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Карточка прибора</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <span class="brand">КАРТОЧКА ПРИБОРА</span
+      ><span class="tag">Локальный прототип</span>
+    </header>
+    <main>
+      <div class="intro">
+        <p class="eyebrow">ПОМОЩНИК КОНТЕНТ-МЕНЕДЖЕРА</p>
+        <h1>Из характеристик —<br />в понятную карточку.</h1>
+        <p>
+          Добавьте сведения о приборе. Получите черновик описания,<br
+            class="desktop"
+          />
+          поисковые запросы и список того, что нужно уточнить.
+        </p>
+      </div>
+      <div class="workspace">
+        <section class="panel input">
+          <div class="section-heading">
+            <h2><span>01</span> Данные о товаре</h2>
+            <button id="sample" class="quiet" type="button">
+              Пример манометра
+            </button>
+          </div>
+          <label for="source">Входной JSON</label
+          ><textarea
+            id="source"
+            spellcheck="false"
+            aria-describedby="input-help"
+          ></textarea>
+          <p id="input-help" class="hint">
+            Обязательно название. Пустые характеристики будут отмечены «данных
+            нет».
+          </p>
+          <button id="generate" class="primary" type="button">
+            Создать черновик <span aria-hidden="true">→</span>
+          </button>
+          <p id="status" role="status" aria-live="polite">
+            Данные обрабатываются локально через Ollama.
+          </p>
+        </section>
+        <section class="panel result">
+          <div class="section-heading">
+            <h2><span>02</span> Черновик карточки</h2>
+            <span id="badge" class="tag">Ждёт данных</span>
+          </div>
+          <div id="empty">
+            <div class="empty-icon" aria-hidden="true">≡</div>
+            <h3>Здесь появится результат</h3>
+            <p>
+              Заголовок, описание, характеристики<br />и подсказки для
+              менеджера.
+            </p>
+          </div>
+          <div id="output" hidden>
+            <p id="note" class="notice"></p>
+            <h3 id="title"></h3>
+            <p id="counts" class="hint"></p>
+            <p id="description"></p>
+            <h4>Ключевые характеристики</h4>
+            <dl id="specs"></dl>
+            <h4>Поисковые запросы</h4>
+            <ul id="queries"></ul>
+            <h4>Для менеджера</h4>
+            <p id="commercial"></p>
+            <h4>Что уточнить</h4>
+            <ul id="missing"></ul>
+            <p class="notice">
+              Перед публикацией проверьте карточку по паспорту выбранного
+              исполнения.
+            </p>
+            <div class="actions">
+              <button id="copy-md" type="button">Копировать Markdown</button
+              ><button id="copy-json" type="button">Копировать JSON</button
+              ><button id="download" type="button">Скачать JSON</button>
+            </div>
+          </div>
+        </section>
+      </div>
+      <footer>
+        Технические значения переносятся из ваших данных. Отсутствующее значение
+        не означает отсутствия функции у прибора.
+      </footer>
+    </main>
+  </body>
+</html>

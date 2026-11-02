@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "product-card-assistant"
+version = "0.1.0"
+description = "Grounded Russian B2B product-card drafts with the local Ollama API"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+product-card = "product_cards.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["product_cards*"]
+
+[tool.setuptools.package-data]
+product_cards = ["static/*.html", "static/*.js", "static/*.css"]
